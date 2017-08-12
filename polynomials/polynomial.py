@@ -1,7 +1,7 @@
 from sympy import *
 import numbers
 
-# To import: import quadratic
+# To import: import polynomials.polynomial
 
 class Quadratic:
     """ This class is a quadratic that evaluates exactly. """
@@ -12,8 +12,11 @@ class Quadratic:
 
     def __call__(self,x,_latex=False):
         """ Returns the value of the quadratic at x """
-        
+
         return self.evaluate(x,_latex=_latex)
+
+    def __str__(self):
+        return str(self.latex())
 
     def evaluate(self,x,_latex=False):
         """ Returns the value of the quadratic at x """
@@ -120,6 +123,9 @@ class NQuadratic:
 
         return self.evaluate(x)
 
+    def __str__(self):
+        return str(self.latex())
+
     def evaluate(self,x):
         """ Returns the value of the quadratic at x """
 
@@ -214,18 +220,6 @@ class NQuadratic:
             else:
                 return None
 
-def factor_quadratic(q,x='x',_latex=True):
-    """ Factors the quadratic """
-    k = symbols('k')
-
-    if (_latex):
-        return latex(factor(q.sympy('k'),extension=[I])).replace('k',x)
-    else:
-        return str(factor(q.sympy('k'),extension=[I])).replace('k',x)
-
-from sympy import *
-import numbers
-
 class Cubic:
     """ This class is a cubic that evaluates exactly. """
     def __init__(self,a,b,c,d):
@@ -238,6 +232,9 @@ class Cubic:
         """ Returns the value of the cubic at x """
 
         return self.evaluate(x,_latex=_latex)
+
+    def __str__(self):
+        return str(self.latex())
 
     def evaluate(self,x,_latex=False):
         """ Returns the value of the cubic at x """
@@ -344,6 +341,9 @@ class NCubic:
         """ Returns the value of the cubic at x """
 
         return self.evaluate(x,_latex=_latex)
+
+    def __str__(self):
+        return str(self.latex())
 
     def evaluate(self,x,_latex=False):
         """ Returns the value of the cubic at x """
